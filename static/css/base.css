@@ -1,0 +1,90 @@
+body{
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+.topnav{
+	margin: 10px 20px;
+	height: 3vw;
+	box-shadow: 0 1px grey;
+	font-size: 1.5vw;
+	background: rgb(200,220,250);
+	padding-bottom: 15px;
+	border-radius: 10px;
+}
+.topnav a{
+	color: rgb(50,80,120);
+}
+.topnav ul{
+	display: inline-flex;
+}
+.topnav ul li{
+	margin-left: 3vw;
+	margin-right: 2vw;
+}
+.topnav ul li:first-child{
+	margin-left: 0;
+	margin-right: 10vw;
+	padding-top: 0;
+}
+
+.search-content{
+	display: inline-flex;
+	list-style: none;
+}
+.search{
+	margin-left: 190px;
+	margin-top: 20px;
+}
+#search:focus{
+	border-radius: 10px;
+	border: 0;
+}
+#search{
+	width: 300px;
+	padding: 5px;
+	color: blue;
+	height: 20px;
+	font-size: 15px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+#submit{
+	width: 50px;
+	height: 30px;
+	color: blue;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+#search:hover{
+	background: rgb(240,240,240);
+	transition: 0.2s ease-out;
+}
+#submit:focus{
+	border: 0;
+}
+#filter{
+	margin-left: 100px;
+	height: 20px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+#filter:hover{
+	background: rgb(240,240,240);
+
+}
+.filter-rating:hover::after{
+	content: "- low to high"
+}
+.filter-land-area:hover::after{
+	content: "- 20acres to 30acres"
+}
+.filter-structure-age:hover::after{
+	content: "- upto 5 years old"
+}

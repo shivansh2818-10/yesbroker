@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block HeadBlock %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/PropertyPage.css' %}">
+{% endblock %}
+
+
+{% block BodyMid %}
+	<div class="main-display">
+		<div class="product-display">
+			<div class="product-main">
+				<div class="product-picture"></div>
+				<div class="product-main-details">
+					<ul>
+						<li>
+							{% if data.RERA == "yes" %}RERA certified
+							{% else %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							{% endif %}
+							<span class="ratings">
+								<span id="details-heading-small">Ratings : </span>{{ data.ratings }}
+								<span id="details-heading-small">Reviews : </span>{{ data.reviews }}
+							</span>
+						</li><br>
+						<li><span id="details-heading">Developer&nbsp;&nbsp;&nbsp;&nbsp;</span>{{ data.Developer }}</li><br>
+						<li><span id="details-heading">Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {{ data.Category }}</li>
+						<br>
+						<li><span id="details-heading">Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {{ data.Society }}, {{ data.Sub_Locality }}, {{ data.Locality }}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="product-secondary">
+				<div class="product-secondary-details">
+					<li><span id="details-heading">Price</span>&nbsp;&nbsp;&nbsp;{{ data.Price }}</li><br>
+					<li><span id="details-heading">Age</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ data.Age }} years</li><br>
+				</div>
+				<div class="product-secondary-details-second">
+					<li><span id="details-heading">Land</span>&nbsp;&nbsp;&nbsp;{{ data.land }}</li><br>
+					<li><span id="details-heading">Blocks</span>&nbsp;&nbsp;&nbsp;{{ data.blocks }}</li><br>
+				</div>
+				<div class="product-secondary-details-third">
+					<li><span id="details-heading">Floors</span>&nbsp;&nbsp;&nbsp;{{ data.floors }}</li><br>
+					<li><span id="details-heading">Units</span>&nbsp;&nbsp;&nbsp;{{ data.units }}</li><br>
+				</div>
+			</div>
+			<div class="products-secondary-further">
+				<center><li><a href="#">Contact Builder</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">View Brochure</a></li></center>
+			</div>
+		</div>
+
+		<div class="contact-us">
+			<center style="font-family:'Lucida Console'">
+				<li>Contact Our Real Estate Experts<hr style="opacity: 0.5"></li>
+				<li><input type="text" placeholder="Name..."></li>
+				<li><input type="text" placeholder="Email id..."></li>
+				<li><input type="text" placeholder="Phone Number..."></li>
+				<li><button><span class="fa fa-whatsapp"> Get Whatsapp updates</span></button></li>
+			</center>
+		</div>
+
+		<div class="product-features">
+			<center>Amenities</center><br>
+			<div class="amenities-details">
+				<div class="amenities-detailed">
+					<li>
+						<span id="details-heading">Sports</span>
+						<span class="amenities">
+							<li>Gymnasium, Swimming Pool</li>
+							<li>Kids' Play Areas / Sand Pits, Yoga Areas</li>
+							<li>Jogging / Cycle Tracks</li>
+						</span>
+					</li><br><br>
+					<li>
+						<span id="details-heading">Convinience</span>
+						<span class="amenities">
+							<li>Power Backup</li>
+							<li>Lift</li>
+						</span>
+					</li><br><br>
+					<li>
+						<span id="details-heading">Safety</span>
+						<span class="amenities">
+							<li>24 * 7 Security</li>
+						</span>
+					</li><br>
+					<li>
+						<span id="details-heading">Leisure</span>
+						<span class="amenities">
+							<li>Party Hall</li>
+							<li>Clubhouse</li>
+							<li>Indoor Games</li>
+						</span>
+					</li><br><br>
+					<li>
+						<span id="details-heading">Environment</span>
+						<span class="amenities">
+							<li>Parks and central greenery</li>
+						</span>
+					</li><br>
+				</div>
+				<div class="amenities-brief">
+					<li><center id="details-heading">Ratings</center>
+						<li>
+							Green Area : 
+							{% for i in list %}
+							<span class="fa fa-star" style="color: green"></span>
+							{% endfor %}
+						</li>
+						<li>
+							Fittings and Furnishings : 
+							{% for i in list %}
+							<span class="fa fa-star" style="color: green"></span>
+							{% endfor %}
+						</li>
+						<li>
+							Club House : 
+							{% for i in list %}
+							<span class="fa fa-star" style="color: green"></span>
+							{% endfor %}
+						</li>
+						<li>
+							Specifications : 
+							{% for i in list %}
+							<span class="fa fa-star" style="color: green"></span>
+							{% endfor %}
+						</li>
+					</li>
+					<li><center id="details-heading">Decision Drivers</center>
+						<li>
+						Connectivity : 7
+						<div style="width: 200px; height: 10px; background: grey;">
+							<div style="width: 140px; height: inherit; background: green;"></div>
+						</div>
+						</li>
+						<li>
+						Lifestyle : 5.6
+						<div style="width: 200px; height: 10px; background: grey;">
+							<div style="width: 112px; height: inherit; background: yellow;"></div>
+						</div>
+						</li>
+						<li>
+						Livability : 6
+						<div style="width: 200px; height: 10px; background: grey;">
+							<div style="width: 120px; height: inherit; background: orange;"></div>
+						</div>
+						</li>
+						<li>
+						Value For Money : 6
+						<div style="width: 200px; height: 10px; background: grey;">
+							<div style="width: 120px; height: inherit; background: orange;"></div>
+						</div>
+						</li>
+					</li>
+					<li>1BHK - 2BHK Flats</li>
+					<li>Spread across 23acres</li>
+					<li>Total 107 units, and more to come...</li>
+					<li>Well connected with M.G. Road</li>
+					<li>30 Storeyed Tower with 2 wings</li>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}
+
+{% block BodyBottom %}
+{% endblock %}

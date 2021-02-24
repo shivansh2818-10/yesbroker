@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block HeadBlock %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/HomePage.css' %}">
+{% endblock %}
+
+{% block BodyHead %}
+{% endblock %}
+
+{% block BodyMid %}
+    <div class="main">
+        <div class="categories">
+            <div class="category">
+                <center>
+                    <strong><li class="category-title">Residential</li></strong>
+                    <li><span class="fa fa-medkit"></span></li>
+                    <li><span class="fa fa-camera"></span></li>
+                    <li><span class="fa fa-bed"></span></li>
+                    <li><span class="fa fa-plane"></span></li>
+                    <li><span class="fa fa-home"></span></li>
+                </center>
+            </div>
+            <div class="category">
+                <center>
+                    <strong><li class="category-title">Commercial</li></strong>
+                    <li><span class="fa fa-medkit"></span></li>
+                    <li><span class="fa fa-camera"></span></li>
+                    <li><span class="fa fa-bed"></span></li>
+                </center>
+            </div>
+            <div class="category">
+                <center>
+                    <strong><li class="category-title">PG / Hotels</li></strong>
+                    <li><span class="fa fa-plane"></span></li>
+                </center>
+            </div>
+            <div class="category">
+                <center>
+                    <strong><li class="category-title">Bank Auctions</li></strong>
+                    <li><span class="fa fa-home"></span></li>
+                </center>
+            </div>
+        </div>
+
+        <div class="products-display">
+            {% for product in properties %}
+            <div class="product-template">
+                <div class="product-content">
+                    <div class="product-picture"></div>
+                    <div class="product-title">
+                            {{ product.Developer }} <small style="margin-left: 50px;">{{ product.Ratings }} <span class="fa fa-star checked"></span>{{ product.Ratings }} </small> <a href="#" id="explore"><span class="fa fa-play"></span>PDF</a>
+                            <br>{{ product.Society }}, {{ product.Sub_Locality }}, {{ product.Locality }}
+                    </div>
+                    <div class="product-price">
+                        SALE: {{ product.Price }}
+                    </div>
+                    <div class="product-details">
+                        <div class="product-details-first">
+                            <li><span class="product-details-headings">Land:</span> {{ product.Society_Configuration_1 }}</li>
+                            <li><span class="product-details-headings">Units:</span> {{ product.Society_Configuration_1 }}</li>
+                            <li><span class="product-details-headings">Type:</span> {{ product.Category }}</li><br>
+                        </div>
+                        <div class="product-details-second">
+                            <li><span class="product-details-headings">Structure Age:</span> {{ product.Age }}</li>
+                            <li><span class="product-details-headings">RERA Id:</span> {{ product.RERA }}</li>
+                        </div>
+                        <div class="product-details-third">
+                            <li><span class="product-details-headings">Configuration:</span> {{ product.Society_Configuration_2 }} <a id="explore" style="margin-left: 100px;padding: 5px;border-radius: 5px;" href="/property/{{ product.id }}">Learn More</a></li>
+                        </div>
+                        <div class="product-details-fourth">
+                            <li><span class="product-details-headings">Available</span>, <span class="product-details-headings">Sale:</span> 3 units, <span class="product-details-headings">Lease:</span> 1 units <a id="explore" style="margin-left: 122px" href="#">Schedule Visit <span class="fa fa-calendar"></span></a></a> <a href="#" id="explore" style="margin-left: 10px" class="fa fa-whatsapp"></a></li>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock %}
