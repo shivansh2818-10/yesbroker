@@ -6,7 +6,7 @@ def PropertiesDataForHomePage():
 	print(data)
 
 def HomePage(request):
-	return render(request, 'new/homepage.html')
+	return render(request, 'homepage.html')
 
 def PropertyFeed(request):
 	data = Property.objects.all()
@@ -18,7 +18,7 @@ def PropertyFeed(request):
 		data[propertyIndex].blocks = data[propertyIndex].Society_Configuration_1.split(",")[1].split(":")[1].lstrip()
 		data[propertyIndex].floors = data[propertyIndex].Society_Configuration_1.split(",")[2].split(":")[1].lstrip()
 		data[propertyIndex].units = data[propertyIndex].Society_Configuration_1.split(",")[3].split(":")[1].lstrip()
-	return render(request, 'new/propertyfeed.html', {'properties':data})
+	return render(request, 'propertyfeed.html', {'properties':data})
 
 def PropertyPage(request, propertyId):
 	data = Property.objects.get(id=propertyId)

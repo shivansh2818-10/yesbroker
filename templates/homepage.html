@@ -1,0 +1,58 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<title>yes broker</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/css/homepage.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="{% static '/images/new/logo.jpeg' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="top-bar">
+		<ul>
+			<li><a href="/"><img src="{% static '/images/logo.jpeg' %}" id="logo"></a></li>
+			<li><a href="/propertyfeed/">Properties</a></li>
+			<li><a href="#">Developer / Society</a></li>
+			<li><a href="#">Premium Services</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#"><span class="fa fa-plus"> Post Property</span></a></li>
+			<li><a href="#" style="color: red;">Sign Up / Login</a></li>
+		</ul>
+	</div>
+	<div class="top-banner">
+		<div class="left-tagline">
+			<li>Fast and Reliable, Our service for you</li>
+		</div>
+		<div class="right-description">
+			<li>One Stop for all your Real Estate needs</li>
+		</div>
+	</div>
+	<center>
+		<div class="top-features">
+			<li class="essentials"><span class="heading">30+ M</span><br><span>Happy Users</span></li>
+			<li class="essentials"><span class="heading">200+ K</span><br><span>Verified Experts</span></li>
+			<li class="essentials"><span class="heading">2000+</span><br><span>Properties</span></li>
+		</div>
+	</center>
+	<div class="property-options">
+		<span class="heading" style="margin-left: 50px;">Properties- Buy & Rent</span>
+		<div class="property-option-block">
+			<center>
+				<a href="/propertyfeed/?for%sale=true">
+					<div class="property-option-template">
+						<img class="property-option-template-picture" src="{% static '/images/properties to buy.jpg' %}">
+						<div class="property-option-template-heading">Properties to buy</div>
+					</div>
+				</a>
+				<a href="/propertyfeed/?for%rent=true">
+					<div class="property-option-template">
+						<img class="property-option-template-picture" src="{% static '/images/properties to rent.jpg' %}">
+						<a href=""><div class="property-option-template-heading">Properties to Rent</div></a>
+					</div><br>
+				</a>
+				
+			</center>
+		</div>
+	</div>
+</body>
+</html>
