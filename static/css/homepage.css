@@ -21,6 +21,9 @@ div{
 input{
 	padding: 10px;
 }
+input:focus{
+	outline: none;
+}
 #logo{
 	width: 100px;
 	height: 100px;

@@ -1,0 +1,125 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+	<title>Yes Broker - {{ data.Developer }}</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/css/property.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="{% static '/images/logo.jpeg' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style media="screen">
+		.carousel-cell{
+			width: 66%;
+			margin-right: 10px;
+		}
+		.carousel-cell::before{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="media-slideshow">
+		<button onclick="CloseMediaSlideshow()">X</button>
+	</div>
+	<div id="contact-us-form">
+		<button style="border-radius: 5px; background: white; border: 0; font-weight: bold; font-size: 20px; font-family: sans-serif;" onclick="CloseContactUsForm()">X</button>
+		<div id="contact-form" style="border-radius: 5px; padding-left: 20px; display: block; box-shadow: -10px -10px 20px grey;">
+			<strong style="font-size: 30px; font-family:'candara'; ">Get Contact Details</strong>
+			<form>
+				<input type="text" name="name" placeholder="Enter your name" maxlength="20" required><br>
+				<input type="number" name="number" placeholder="Enter your mobile number" min="1000000000" max="9999999999" required><br>
+				<input type="email" name="email" placeholder="Enter your email address" required>
+				<button style="float: right; margin-right: 30px; width: 200px; background: rgb(254,188,54); color: white; font-size: 20px; font-weight: bold; padding: 10px; margin-top: 20px; border-radius: 4px; border: 0px;" >VIEW CONTACT</button>
+			</form>
+		</div>
+	</div>
+	<div id="wholebody">
+		<div id="contact-us-form-2" style="border-radius: 5px; padding-left: 20px; display: block;">
+			<strong style="font-size: 30px; font-family:'candara'; ">Get Contact Details</strong>
+			<form>
+				<input type="text" name="name" placeholder="Enter your name" maxlength="20" style="width: 300px;" required><br>
+				<input type="number" name="number" placeholder="Enter your mobile number" style="width: 300px;" min="1000000000" max="9999999999" required><br>
+				<input type="email" name="email" placeholder="Enter your email address" style="width: 300px;" required>
+				<button style="margin-left: 50px; width: 200px; background: rgb(254,188,54); color: white; font-size: 20px; font-weight: bold; padding: 10px; margin-top: 20px; border-radius: 4px; border: 0px;" >VIEW CONTACT</button>
+			</form>
+		</div>
+		<div class="top-bar" id="top-bar">
+			<ul>
+				<li><a href="/"><img src="{% static '/images/logo.jpeg' %}" id="logo"></a></li>
+				<li><a href="/propertyfeed/">Properties</a></li>
+				<li><a href="#">Developer / Society</a></li>
+				<li><a href="#">Premium Services</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#"><span class="fa fa-plus"> Post Property</span></a></li>
+				<li><a href="#">Sign Up / Login</a></li>
+			</ul>
+		</div>
+
+		<div class="top-details">
+			<li>
+				<span style="font-size: 20px; font-weight: bold;">{{ data.Developer }}</span>
+				<span style="font-size: 12px; margin-left: 50px;">
+					{% if data.RERA == "yes" %}
+					RERA certified <span class="fa fa-tag"></span>
+					{% else %}
+					not certified
+					{% endif %}
+				</span>
+			</li>
+			<li>
+				<small>
+					<span style="color: grey;" class="fa fa-location-arrow">{{ data.Society }}, {{ data.Sub_Locality }}, {{ data.Locality }}</span>
+					<span style="margin-left: 50px;"><a href="{{ data.Google_Pin }}" target="_blank">View On Map</a></span>
+				</small>
+			</li>
+			<li style="margin-top: 30px; margin-left: 20px; font-size: 40px; font-family: sans-serif;">
+				&#8377;{{ data.Price }} <span style="font-size: 18px; color: grey; font-family: calibri; font-style: italic;">Price Negotiable</span>
+			</li>
+			<li style="margin-top: 20px;">
+				<span class="sub-heading">Plot Area</span><span style="font-family: calibri; font-style: italic;">{{ data.land }}</span>
+			</li>
+			<li style="margin-top: 50px;">
+				<span><a style="background: white; border-radius: 3px; color: green; font-size: 25px; border: 2px solid lightgreen; padding: 10px; cursor: pointer;" href="https://api.whatsapp.com/send?phone=+918368261765&text=Hey I am interested for the property listed on YesBroker.in with Property id {{ data.id }} which is for Rs.{{ data.Price }}." target="_blank"><span class="fa fa-whatsapp"></span> Contact Us</a></span>
+				<span><a onclick="OpenContactUsForm()" style="background: rgb(254,188,54); border-radius: 3px; font-size: 27px; border: 2px solid white; color: white; padding: 10px; cursor: pointer;">VIEW CONTACT</a></span>
+			</li>
+		</div>
+		<span style="margin-left: 20px; background: white; padding: 20px;box-shadow: 0px 2px 5px grey;">Quick Links:</span>
+		<div class="details-nav-bar">
+			<a href="#photos">Photos</a>
+			<a href="#amenities">Amenities</a>
+			<a href="#overview">Overview</a>
+		</div>
+		<div id="photos" class="details-other">
+			Photos <!--<button onclick="OpenMediaSlideshow()">asd</button>-->
+		</div>
+
+		<div id="amenities" class="details-other">
+			amenities
+		</div>
+
+		<div id="overview" class="details-other">
+			overview
+		</div>
+	</div>
+
+	<script>
+		function OpenMediaSlideshow(){
+			document.getElementById('wholebody').style.opacity = '0.1';
+			document.getElementById('media-slideshow').style.display = 'block';
+		}
+		function CloseMediaSlideshow() {
+			document.getElementById('wholebody').style.opacity = '1';
+			document.getElementById('media-slideshow').style.display = 'none';
+		}
+
+		function OpenContactUsForm() {
+			document.getElementById('wholebody').style.opacity = '0.1';
+			document.getElementById('contact-us-form').style.display = 'block';
+		}
+		function CloseContactUsForm(argument) {
+			document.getElementById('wholebody').style.opacity = '1';
+			document.getElementById('contact-us-form').style.display = 'none';
+		}
+	</script>
+
+</body>
+</html>

@@ -3,7 +3,6 @@
 import os
 import sys
 
-
 '''
 To delete the recent actions from the admin
 1)In the root directory of the project, from terminal
@@ -26,7 +25,6 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-
 
 if __name__ == '__main__':
     main()

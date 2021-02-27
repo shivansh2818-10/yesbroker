@@ -21,7 +21,9 @@ div{
 input{
 	padding: 10px;
 }
-
+input:focus{
+	outline: none;
+}
 #logo{
 	width: 100px;
 	height: 100px;
@@ -104,6 +106,7 @@ input{
 }
 .filter-unchecked{
 	padding: 5px;
+	cursor: pointer;
 	font-family: "calibri";
 	margin-left: 20px;
 	border-radius: 10px;
@@ -111,6 +114,7 @@ input{
 }
 .filter-checked{
 	padding: 5px;
+	cursor: pointer;
 	font-family: "calibri";
 	margin-left: 25px;
 	transition: 0.2s;
@@ -119,16 +123,21 @@ input{
 }
 .filter-checked::before{
 	content: "\2713";
+	border-right: 2px solid red;
+	padding-right: 5px;
 	margin-right: 10px;
 	margin-left: 0;
 }
 .property-display-main-section{
+	display: block;
 	margin-left: 1%;
 	width: 70%;
 }
 .property-display-template{
+	display: block;
 	width: 100%;
 	height: 380px;
+	margin-bottom: 10px;
 	background: white;
 	padding-left: 20px;
 	padding-top: 20px;

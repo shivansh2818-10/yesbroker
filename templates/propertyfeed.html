@@ -1,10 +1,10 @@
 {% load static %}<!DOCTYPE html>
 <html>
 <head>
-	<title>yes broker - properties</title>
+	<title>Yes Broker Properties</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/css/propertyfeed.css' %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="icon" href="{% static '/images/new/logo.jpeg' %}">
+	<link rel="icon" href="{% static '/images/logo.jpeg' %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -26,21 +26,21 @@
 		<div class="property-display-filter-section">
 			<center><li>Filters</li></center>
 			<li style="margin-left: 10px"><a href="/propertyfeed/">Clear All</a></li>
-			
-			<li class="filter-sub-heading">Type</li>
-			<li class="filter-container"><a id="for sale" class="filter-unchecked" onclick="addParameters('for sale', 'true', this)">For Sale</a></li>
-			<li class="filter-container"><a id="for rent" class="filter-unchecked" onclick="addParameters('for rent', 'true', this)">For Rent</a></li>
 
-			<li class="filter-sub-heading">Age</li>
-			<li class="filter-container"><a id="less than three years" class="filter-unchecked" onclick="addParameters('less than three years', 'true', this)">-3 years</a></li>
-			<li class="filter-container"><a id="between 3 and 5 years" class="filter-unchecked" onclick="addParameters('between 3 and 5 years', 'true', this)">3 - 5 years</a></li>
-			<li class="filter-container"><a id="between 5 and 8 years" class="filter-unchecked" onclick="addParameters('between 5 and 8 years', 'true', this)">5 - 8 years</a></li>
-			<li class="filter-container"><a id="between 8 and 10 years" class="filter-unchecked" onclick="addParameters('between 8 and 10 years', 'true', this)">8 - 10 years</a></li>
-			<li class="filter-container"><a id="above than 10 years" class="filter-unchecked" onclick="addParameters('above than 10 years', 'true', this)">10+ Years</a></li>
+			{% for key,value in filterData.items %}
+			<li class="filter-sub-heading">{{ key }}</li>
+			{% for i in value %}
+			<li class="filter-container">
+				<a id="{{ i.Filter_Name }}" class="filter-unchecked" onclick="addParameters('{{ i.Filter_Name }}', 'true', this)">{{ i.Filter_Name }}</a>
+			</li>
+			{% endfor %}
+			{% endfor %}			
+			
+			
 		</div>
 		<div class="property-display-main-section">
 			{% for property in properties %}
-			<a href="#" class="property-display-template">
+			<a href="/property/{{ property.id }}{{ property.Developer }}{{ property.Price }}" class="property-display-template" target="_blank">
 				<div class="property-picture">
 					<center><li>{{ property.ratings }} <span class="fa fa-star"></span> in {{ property.reviews }} reviews</li></center>
 					<li><img src="{% static 'images/productPictureSample.jfif' %}" id="property-picture"></li>
@@ -108,6 +108,8 @@
 		}
 	};
 	function addParameters(parameterKey, parameterValue, element){
+		var parameterKey = element.id;
+		var parameterValue = 'true';
 		while(parameterKey.includes(' ')){
 			parameterKey = parameterKey.replace(' ', '%');
 		}
